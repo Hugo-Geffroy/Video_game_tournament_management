@@ -34,7 +34,6 @@ La cataloguation des tournois sera disponible en version *connectée* et *non co
 | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | Mise en place d'une liste interactive et triée des amis par un système de disponibilité. | - Le système d'amis sera lié à la page de profil, développée ci-dessous par un **Développeur Front-End**.       |
 
-Bien sûr ! Voici les sections demandées, structurées de manière similaire :
 
 ### Gestion des amis via un système de messagerie privée entre utilisateurs
 
