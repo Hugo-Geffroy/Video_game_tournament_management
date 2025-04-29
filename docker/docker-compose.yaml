@@ -24,11 +24,9 @@ services:
       MYSQL_ROOT_PASSWORD: rootpassword
     ports:
       - "8080:80"
-  ntp:
-    image: dockurr/chrony
-    container_name: ntp
-    environment:
-      NTP_SERVERS: "fr.pool.ntp.org"
+  dns:
+    image: ubuntu/bind9
+    container_name: dns_bind9
     ports:
-      - 123:123/udp
-    restart: always
+      - "53:53/udp"
+      - "53:53/tcp"
