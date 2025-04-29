@@ -9,7 +9,7 @@ $TTL    604800
 @       IN      NS      ns1.gestionTournament.com.
 
 ns1     IN      A	127.0.0.1
-web	IN	A	172.19.0.4
+web	IN	A	172.19.0.2
 mysql	IN	A	172.19.0.3
-php	IN	A	172.19.0.2
+php	IN	A	172.19.0.4
 
