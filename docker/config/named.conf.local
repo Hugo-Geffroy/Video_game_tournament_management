@@ -1,0 +1,5 @@
+zone "gestionTournament.com" {
+    type master;
+    file "/var/lib/bind/db.gestionTournament.com";
+};
+
