@@ -8,8 +8,8 @@ $TTL    604800
 ;
 @       IN      NS      ns1.gestionTournament.com.
 
-ns1     IN      A	127.0.0.1
-web	IN	A	172.18.0.2
-mysql	IN	A	172.18.0.3
-php	IN	A	172.18.0.4
+ns1     IN      A       127.0.0.1
+web     IN      A       127.0.0.1
+mysql   IN      A       127.0.0.1
+php     IN      A       127.0.0.1
 
