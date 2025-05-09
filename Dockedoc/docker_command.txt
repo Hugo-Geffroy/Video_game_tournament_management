@@ -1,0 +1,12 @@
+commande pour build un serveur docker file et docker compose
+docker-compose up --build
+
+commande pour up un serveur dockerfile et docker compose 
+docker-compose up 
+
+commande pour down un serveur dockerfile et docker compose 
+docker-compose down
+
+commande pour rentrer dans le serveur docker quand il est up
+docker exec -it php_gestion_tournament /bin/bash
+

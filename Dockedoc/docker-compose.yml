@@ -1,0 +1,82 @@
+version: '3.8'
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php_gestion_tournament
+    ports:
+      - "8000:80"
+      - "443:443"
+    volumes:
+      - ./Video_game_tournament_management/site:/var/www/html
+
+  db:
+    image: mysql:8.0
+    container_name: mysql_gestion_tournament
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: demo
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3307:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin_gestion_tournament
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "8080:80"
+
+  dns:
+    image: ubuntu/bind9
+    container_name: dns_gestion_tournament
+    ports:
+      - "5353:53/tcp"
+      - "5353:53/udp"
+    volumes:
+      - ./Video_game_tournament_management/docker/config/dns:/etc/bind/
+      - ./Video_game_tournament_management/docker/zones:/var/lib/bind/
+
+  syslog:
+    image: balabit/syslog-ng:latest
+    container_name: syslog_gestion_tournament
+    ports:
+      - "514:514/udp"
+      - "514:514/tcp"
+    volumes:
+      - ./Video_game_tournament_management/docker/config/syslog:/etc/syslog-ng
+
+  mail:
+    build: ./Video_game_tournament_management/docker/mail
+    container_name: mail_gestion_tournament
+    hostname: mail.local
+    ports:
+      - "1025:25"
+      - "143:143"
+    volumes:
+      - mail_data:/var/mail
+
+  webmail:
+    image: roundcube/roundcubemail
+    container_name: webmail_gestion_tournament
+    environment:
+      ROUNDCUBEMAIL_DEFAULT_HOST: lamp_mail
+      ROUNDCUBEMAIL_SMTP_SERVER: lamp_mail
+      ROUNDCUBEMAIL_DEFAULT_PORT: 143
+      ROUNDCUBEMAIL_SMTP_PORT: 25
+      ROUNDCUBEMAIL_LOG_DRIVER: stdout
+    ports:
+      - "8082:80"
+    volumes:
+      - ./Video_game_tournament_management/docker/webmail/config.inc.php:/config.docker.inc.php
+    depends_on:
+      - mail
+
+volumes:
+    mail_data:
+
