@@ -66,6 +66,7 @@ function genUUID($length = 10) {
     }
     return $resultat;
 }
+
 function getUUID($idU) {
     try {
         $cnx = connexionPDO();

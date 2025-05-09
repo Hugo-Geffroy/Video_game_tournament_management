@@ -11,7 +11,7 @@
     }
 
     $titre = 'Profil :: '. $util['pseudoU'];
-    $css = "style/style.css";
+    $css = "style/style-profil.css";
     include "$racine/vue/entete.php";
-    include "$racine/vue/vueAccueil.php";
+    include "$racine/vue/vueMonProfil.php";
 ?>
