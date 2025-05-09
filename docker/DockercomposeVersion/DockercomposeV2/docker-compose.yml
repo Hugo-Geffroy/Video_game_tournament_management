@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php_gestion_tournament
+    ports:
+      - "8000:80"
+    volumes:
+      - ./Video_game_tournament_management/site:/var/www/html
+
+  db:
+    image: mysql:8.0
+    container_name: mysql_gestion_tournament
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: demo
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3307:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin_gestion_tournament
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "8080:80"
+
+  dns:
+    image: ubuntu/bind9
+    container_name: dns_gestion_tournament
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    volumes:
+      - ./Video_game_tournament_management/docker/config:/etc/bind/
+      - ./Video_game_tournament_management/docker/zones:/var/lib/bind/
+
