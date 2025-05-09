@@ -1,0 +1,258 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f9f9f9;
+    color: #333;
+}
+
+.hero {
+    background: linear-gradient(135deg, #960018, #FFD700);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.search-bar input {
+    padding: 0.8rem;
+    width: 300px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+}
+
+.search-bar button {
+    padding: 0.8rem 1.5rem;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.tournament-section {
+    padding: 2rem;
+    text-align: center;
+}
+
+.tournament-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.tournament-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    width: 280px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.tournament-carte h3 {
+    margin-top: 0;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background:#600011;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Menu burger & navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #600011;
+    padding: 1rem 2rem;
+    color: white;
+    position: relative;
+}
+
+.nav-left .login-btn {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    background: #ff6b6b;
+    border-radius: 8px;
+}
+
+.burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.burger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+.burger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+#nav-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #960018;
+    padding: 1rem;
+    z-index: 1000;
+}
+
+#nav-menu.active {
+    display: flex;
+}
+
+#nav-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 0;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.filter-toggle {
+    background: #600011;
+    color: white;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.filter-panel {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 10px rgba(0,0,0,0.2);
+    transition: right 0.3s ease;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.filter-panel.active {
+    right: 0;
+}
+
+.filter-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.filter-content input {
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.filter-content button {
+    padding: 0.6rem;
+    background: #960018;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.filter-toggle {
+    background: #600011;
+    color: white;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.filter-panel {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 300px;
+    height: 100%;
+    background: white;
+    box-shadow: -4px 0 10px rgba(0,0,0,0.2);
+    transition: right 0.3s ease-in-out;
+    z-index: 9999;
+    padding: 1.5rem;
+}
+
+.filter-panel.active {
+    right: 0;
+}
+
+.filter-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.filter-content input {
+    padding: 0.5rem;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.filter-content button {
+    padding: 0.6rem;
+    background: #960018;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
