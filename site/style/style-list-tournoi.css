@@ -1,0 +1,112 @@
+body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #960018, #FFD700);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .tournament-list {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .tournament-item {
+            margin-bottom: 1rem;
+        }
+
+        .tournament-item a {
+            color: #600011;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .tournament-item a:hover {
+            color: #960018;
+        }
+
+/* Menu burger & navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #600011;
+    padding: 1rem 2rem;
+    color: white;
+    position: relative;
+}
+
+.nav-left .login-btn {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    background: #ff6b6b;
+    border-radius: 8px;
+}
+
+.burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.burger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+.burger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+#nav-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #960018;
+    padding: 1rem;
+    z-index: 1000;
+}
+
+#nav-menu.active {
+    display: flex;
+}
+
+#nav-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 0;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}

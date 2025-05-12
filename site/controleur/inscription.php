@@ -47,7 +47,7 @@ if ($inscrit) {
     include "$racine/vue/vueConfirmationInscription.php";
 } else {
     $titre = "Créer un compte";
-    $css = "style/connexion.css";
+    $css = "style/style2.css";
     include "$racine/vue/entete.php";
     include "$racine/vue/vueInscription.php";
 }

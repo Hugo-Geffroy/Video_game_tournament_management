@@ -22,9 +22,9 @@
 
     <nav id="nav-menu">
         <a href="./?action=accueil">Accueil</a>
-        <a href="#">Tournois</a>
+        <a href="./?action=tournoi">Tournois</a>
         <?php if(isLoggedOn()){ ?>
-            <a href="#">Créer un tournoi</a>
+            <a href="./?action=formTournoi">Créer un tournoi</a>
             <a href="./?action=profil">Mon profil</a>
             <a href="./?action=deconnexion">Déconnexion</a>
         <?php } 

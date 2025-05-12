@@ -42,19 +42,20 @@ $tournaments = [
 <!-- Filtre Button -->
 <div class="filter-buttons">
     <button onclick="filterByTag('all')">Tous</button>
-    <button onclick="filterByTag('smash')">Smash Bros</button>
-    <button onclick="filterByTag('guiltygear')">Guilty Gear</button>
-    <button onclick="filterByTag('tekken')">Tekken</button>
+    <button onclick="filterByTag('0')">Smash Bros</button>
+    <button onclick="filterByTag('2')">Guilty Gear</button>
+    <button onclick="filterByTag('1')">Tekken</button>
+    <button onclick="filterByTag('3')">Mortal Kombat</button>
 </div>
 
 <main class="tournament-section">
     <h2>Tournois à venir</h2>
     <div class="tournament-list">
-        <?php foreach ($tournaments as $tournament): ?>
-            <div class="tournament-card" data-tags="<?= htmlspecialchars($tournament['tags']) ?>">
-                <h3><?= htmlspecialchars($tournament['title']) ?></h3>
-                <p><strong>Lieu :</strong> <?= htmlspecialchars($tournament['location']) ?></p>
-                <p><strong>Date :</strong> <?= htmlspecialchars($tournament['date']) ?></p>
+        <?php foreach ($tournois as $tournament): ?>
+            <div class="tournament-card" data-tags="<?= htmlspecialchars($tournament['idJ']) ?>">
+                <h3><?= htmlspecialchars($tournament['nomTournoi']) ?></h3>
+                <p><strong>Lieu :</strong> <?= htmlspecialchars($tournament['ville']) . ", " . htmlspecialchars($tournament['pays']) ?></p>
+                <p><strong>Date :</strong> <?= htmlspecialchars($tournament['date_deb']) ?></p>
                 <a href="#" class="btn">Voir plus</a>
             </div>
         <?php endforeach; ?>
