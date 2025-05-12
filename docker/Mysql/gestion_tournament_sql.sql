@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 09 mai 2025 à 13:13
+-- Généré le : lun. 12 mai 2025 à 22:06
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -69,6 +69,16 @@ CREATE TABLE `jeu` (
   `idTJ` int(11) NOT NULL,
   `idT` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `jeu`
+--
+
+INSERT INTO `jeu` (`idJ`, `nomJ`, `image_ref`, `idTJ`, `idT`) VALUES
+(0, 'Super Smash Bros Ultimate', NULL, 0, NULL),
+(1, 'Tekken', NULL, 1, NULL),
+(2, 'Guilty Gear', NULL, 2, NULL),
+(3, 'Mortal', NULL, 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -217,6 +227,7 @@ CREATE TABLE `succès` (
 
 CREATE TABLE `tournoi` (
   `idT` int(11) NOT NULL,
+  `nomTournoi` varchar(50) DEFAULT NULL,
   `date_deb` date DEFAULT NULL,
   `date_fin` date DEFAULT NULL,
   `ville` varchar(50) DEFAULT NULL,
@@ -224,8 +235,16 @@ CREATE TABLE `tournoi` (
   `pays` varchar(50) DEFAULT NULL,
   `statut` varchar(50) DEFAULT NULL,
   `nb_joueur` int(11) DEFAULT NULL,
+  `descTournoi` varchar(250) DEFAULT NULL,
   `idJ` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `tournoi`
+--
+
+INSERT INTO `tournoi` (`idT`, `nomTournoi`, `date_deb`, `date_fin`, `ville`, `région`, `pays`, `statut`, `nb_joueur`, `descTournoi`, `idJ`) VALUES
+(9, 'SmashEgg', '2025-05-17', '2025-05-17', 'Paris', NULL, 'France', NULL, 8, 'Sheeesh', 0);
 
 -- --------------------------------------------------------
 
@@ -237,6 +256,16 @@ CREATE TABLE `typejeu` (
   `idTJ` int(11) NOT NULL,
   `libelleT` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `typejeu`
+--
+
+INSERT INTO `typejeu` (`idTJ`, `libelleT`) VALUES
+(0, 'Smash'),
+(1, 'Tekken'),
+(2, 'Guilty'),
+(3, 'Mortal');
 
 -- --------------------------------------------------------
 
@@ -380,8 +409,7 @@ ALTER TABLE `succès`
 -- Index pour la table `tournoi`
 --
 ALTER TABLE `tournoi`
-  ADD PRIMARY KEY (`idT`),
-  ADD KEY `fk_tournoi_jeu` (`idJ`);
+  ADD PRIMARY KEY (`idT`);
 
 --
 -- Index pour la table `typejeu`
@@ -401,6 +429,16 @@ ALTER TABLE `typenotif`
 ALTER TABLE `utilisateur`
   ADD PRIMARY KEY (`idU`) USING BTREE,
   ADD KEY `idStat` (`idStat`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `tournoi`
+--
+ALTER TABLE `tournoi`
+  MODIFY `idT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Contraintes pour les tables déchargées
@@ -481,12 +519,6 @@ ALTER TABLE `participer`
 ALTER TABLE `recevoir`
   ADD CONSTRAINT `recevoir_ibfk_1` FOREIGN KEY (`idU`) REFERENCES `utilisateur` (`idU`),
   ADD CONSTRAINT `recevoir_ibfk_2` FOREIGN KEY (`idN`) REFERENCES `notification` (`idN`);
-
---
--- Contraintes pour la table `tournoi`
---
-ALTER TABLE `tournoi`
-  ADD CONSTRAINT `fk_tournoi_jeu` FOREIGN KEY (`idJ`) REFERENCES `jeu` (`idJ`);
 
 --
 -- Contraintes pour la table `utilisateur`
