@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: php_gestion_tournament
     ports:
-      - "8000:80"
+      - "80:80"
       - "443:443"
     volumes:
       - ./Video_game_tournament_management/site:/var/www/html
@@ -38,11 +38,10 @@ services:
     image: ubuntu/bind9
     container_name: dns_gestion_tournament
     ports:
-      - "5353:53/tcp"
-      - "5353:53/udp"
+      - "53:53/tcp"
+      - "53:53/udp"
     volumes:
       - ./Video_game_tournament_management/docker/config/dns:/etc/bind/
-      - ./Video_game_tournament_management/docker/zones:/var/lib/bind/
 
   syslog:
     image: balabit/syslog-ng:latest
