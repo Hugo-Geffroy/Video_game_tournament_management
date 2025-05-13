@@ -1,17 +1,17 @@
 <?php
 
 function connexionPDO() {
-    $login = "admin";
-    $mdp = "netlab123";
-    $bd = "bidouille";
-    $serveur = "localhost";
+    $login = "root";
+    $mdp = "rootpassword";
+    $bd = "gestiontournament";
+    $serveur = "db";
 
     try {
         $conn = new PDO("mysql:host=$serveur;dbname=$bd", $login, $mdp, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'')); 
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $conn;
     } catch (PDOException $e) {
-        print "Erreur de connexion PDO ";
+        print "Erreur de connexion PDO ". $e->getMessage() . "<br/>";
         die();
     }
 }

@@ -40,9 +40,9 @@ function getMailULoggedOn(){
 }
 
 function isLoggedOn() {
-    if (!isset($_SESSION)) {
-        session_start();
-    }
+#    if (!isset($_SESSION)) {
+#        session_start();
+#    }
     $ret = false;
 
     if (isset($_SESSION["mailU"])) {
